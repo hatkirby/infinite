@@ -738,7 +738,7 @@ int main(int argc, char** argv)
     textimage.opacity(((double)MaxRGB) * 0.8);
     image.composite(textimage, 0, 0, Magick::OverCompositeOp);
   
-    image.magick("png");
+    image.magick("jpg");
     
     Magick::Blob outputimg;
     image.write(&outputimg);
@@ -746,7 +746,7 @@ int main(int argc, char** argv)
     std::cout << "Generated image!" << std::endl << "Tweeting..." << std::endl;
     
     long media_id;
-    twitter::response resp = client.uploadMedia("image/png", (const char*) outputimg.data(), outputimg.length(), media_id);
+    twitter::response resp = client.uploadMedia("image/jpeg", (const char*) outputimg.data(), outputimg.length(), media_id);
     if (resp != twitter::response::ok)
     {
       std::cout << "Twitter error while uploading image: " << resp << std::endl;
