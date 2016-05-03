@@ -1,12 +1,12 @@
 And in that moment, I could swear we were {ADJECTIVE}.
-In {LANGUAGE}, you don't say "{SENTENCE}", you say "{SENTENCE}" and I think that's beautiful.
+In {LANGUAGE}, you don't say "I am {ADJECTIVE}", you say "{SENTENCE}" and I think that's beautiful.
 Do you love the color of the {NOUN}? Which one?
 You all laugh because I'm {ADJECTIVE}. I laugh because you are all {ADJECTIVE}.
 Life begins at the end of your {NOUN}.
 Every new {NOUN} is a new chance to change your {NOUN}.
 If you {VERB} people, you have no time to {VERB} them.
 In the end, we only regret the {PLURAL_NOUN} we didn't take.
-I just want to be completely upfront and say that I {ADVERB} {VERB} you.
+I just want to be completely {ADJECTIVE} and say that I really {VERB} you.
 Wanderlust: a very strong and {ADJECTIVE} impulse or desire to {VERB} the world.
 Do not go where the {NOUN} may lead; go instead where there is no {NOUN} and leave a {NOUN}.
 {Noun} isn't easy for those who {VERB}.
@@ -30,3 +30,4 @@ I can't explain how {ADJECTIVE} it is to wait for something that never {VERBS}.
 I will follow you into the {NOUN}.
 I think about {NOUN} a lot. More than I probably should.
 {Noun}ophobia: (n.) the fear of {VERBING} someone you love.
+We stopped looking for {PLURAL_NOUN} under our {PLURAL_NOUN} when we realized they were inside of us.
