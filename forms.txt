@@ -29,7 +29,7 @@ If nobody {VERBS} you, {CLAUSE}.
 Don't waste your whole {THING_YOU_HAVE} trying {INFINITIVAL_PHRASE}.
 I can't explain how {ADJECTIVE} it is {INFINITIVAL_PHRASE}.
 I will follow you into the {UNCOUNTABLE_NOUN}.
-I think about {NOUN} a lot. {SENTENCE}
+I think about {ABSTRACT_NOUN} a lot. {SENTENCE}
 {Noun}ophobia: (n.) the fear of {VERBING} {SOMETHING}.
 We stopped looking for {PLURAL_NOUN} under our {PLURAL_NOUN} when we realized {CLAUSE}.
 Living on Earth is {ADJECTIVE}, but {CLAUSE}.
@@ -39,6 +39,17 @@ I'm going {INFINITIVAL_PHRASE} because {CLAUSE}.
 A dream is {SOMETHING} your {THING_YOU_HAVE} makes.
 All {PLURAL_NOUN} have {SOMETHING}.
 After {SOMETHING}, my {THING_YOU_HAVE} said "{SENTENCE}"
+The {PLURAL_NOUN} pass and {CLAUSE}.
+Two can keep a secret if {CLAUSE}.
+Lost in {SOMETHING} that doesn't exist.
+Have you ever confused {SOMETHING} with {ABSTRACT_NOUN}?
+{Adjective} things fall apart so {CLAUSE}.
+I am {SOMETHING} and {SOMETHING}.
+I'd be lying if I told you {CLAUSE}.
+Because when you stop and look around, {CLAUSE}.
+I try {INFINITIVAL_PHRASE} so that {CLAUSE}.
+{Abstract_noun} is our only salvation from {SOMETHING}.
+Be fearless in the pursuit of {SOMETHING}.
 
 CLAUSE
 we were {ADJECTIVAL_PHRASE}
@@ -55,6 +66,12 @@ you're doing something wrong
 they were inside of us
 it does include {SOMETHING}
 I'm crazy enough {INFINITIVAL_PHRASE}
+we haven't {VERBED} anything
+one of them is {ADJECTIVE}
+better things can fall together
+losing you was something I could handle
+this life is {ADJECTIVAL_PHRASE}
+I can {VERB} with myself
 
 SENTENCE
 Which one?
@@ -64,7 +81,7 @@ I laugh because you are all {ADJECTIVAL_PHRASE}.
 Go instead where there is no {NOUN} and leave a {NOUN}.
 When it's dark, {CLAUSE}.
 More than I probably should.
-Maybe life isn't for everyone.
+Maybe {ABSTRACT_NOUN} isn't for everyone.
 
 SOMETHING
 the end of your {THING_YOU_HAVE}
@@ -77,6 +94,12 @@ everything
 a wish
 an end
 a year in therapy
+a world
+a dream
+a day{VERB}er
+a night{VERB}er
+the horror of {ABSTRACT_NOUN}
+what sets your {THING_YOU_HAVE} on fire
 
 INFINITIVAL_PHRASE
 to be {ADJECTIVAL_PHRASE}
@@ -88,10 +111,11 @@ to {TRANSITIVE_VERB} them
 to switch on the {UNCOUNTABLE_NOUN}
 to change your {THING_YOU_HAVE}
 to {TRANSITIVE_VERB} the {UNCOUNTABLE_NOUN}
-to be completely out of touch with reality
+to be completely out of touch with {ABSTRACT_NOUN}
 to figure out {SOMETHING} at once
 to succeed
 to think I can
+to {VERB} {ABSTRACT_NOUN}
 
 ADJECTIVAL_PHRASE
 {ADJECTIVE}
@@ -102,6 +126,7 @@ ADJECTIVAL_PHRASE
 the same
 getting fucked
 getting {VERBED}
+pretty amazing
 
 ADJECTIVE
 infinite
@@ -119,6 +144,19 @@ salacious
 destined
 surreal
 indecent
+dead
+
+ABSTRACT_NOUN
+art
+existence
+life
+happiness
+serenity
+desirability
+misfortune
+wealth
+{ADJECTIVE} inadequacy
+reality
 
 UNCOUNTABLE_NOUN
 sky
@@ -143,6 +181,7 @@ therapist
 hopes
 love
 Amazon Prime subscription
+soul
 
 PLURAL_NOUN
 risks
@@ -156,6 +195,7 @@ lives
 needs
 experiences
 freedoms
+years
 
 TRANSITIVE_VERB
 destroy
