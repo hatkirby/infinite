@@ -1,12 +1,12 @@
 FORM
-And in that moment, I could swear {CLAUSE}.
+And {TEMPORAL_PHRASE}, I could swear {CLAUSE}.
 In {LANGUAGE}, {CLAUSE} and {CLAUSE}.
 Do you love the color of the {UNCOUNTABLE_NOUN}? {SENTENCE}
 You all laugh because I'm {ADJECTIVAL_PHRASE}. {SENTENCE}
 Life begins at {SOMETHING}.
 Every new {NOUN} is {SOMETHING}.
 If you {TRANSITIVE_VERB} people, {CLAUSE}.
-In the end, {CLAUSE}.
+{Temporal_phrase}, {CLAUSE}.
 I just want {INFINITIVAL_PHRASE} and say that {CLAUSE}.
 Wanderlust: {SOMETHING}.
 Do not go where the {UNCOUNTABLE_NOUN} may lead. {SENTENCE}
@@ -14,8 +14,8 @@ Do not go where the {UNCOUNTABLE_NOUN} may lead. {SENTENCE}
 You build up a world of {PLURAL_NOUN} because {CLAUSE}.
 {Adjective} is just {SOMETHING}.
 Find a beautiful {NOUN} and get {VERBED}.
-Keep your feet on the {UNCOUNTABLE_NOUN} when your head's in the {UNCOUNTABLE_NOUN}.
-{Uncountable_noun} can be found in the {SUPERLATIVE} of times if {CLAUSE}.
+Keep your feet on the {UNCOUNTABLE_NOUN} {TEMPORAL_PHRASE}.
+{Uncountable_noun} can be found {TEMPORAL_PHRASE} if {CLAUSE}.
 May the {UNCOUNTABLE_NOUN} be ever in your {THING_YOU_HAVE}.
 Do something today that your future self will {TRANSITIVE_VERB} you for.
 Sometimes it's so {ADJECTIVE} {INFINITIVAL_PHRASE}.
@@ -23,7 +23,7 @@ When it rains, {CLAUSE}. {SENTENCE}
 I'd rather {TRANSITIVE_VERB} the {UNCOUNTABLE_NOUN} than wait for it.
 There's a {NOUN} in all of us.
 You were born {INFINITIVAL_PHRASE}, not to be perfect.
-{Transitive_verb} me when I least deserve it because {CLAUSE}.
+{Transitive_verb} me {TEMPORAL_PHRASE} because {CLAUSE}.
 Normal is {ADJECTIVAL_PHRASE}.
 If nobody {VERBS} you, {CLAUSE}.
 Don't waste your whole {THING_YOU_HAVE} trying {INFINITIVAL_PHRASE}.
@@ -31,14 +31,14 @@ I can't explain how {ADJECTIVE} it is {INFINITIVAL_PHRASE}.
 I will follow you into the {UNCOUNTABLE_NOUN}.
 I think about {ABSTRACT_NOUN} a lot. {SENTENCE}
 {Noun}ophobia: (n.) the fear of {VERBING} {SOMETHING}.
-We stopped looking for {PLURAL_NOUN} under our {PLURAL_NOUN} when we realized {CLAUSE}.
+We stopped looking for {PLURAL_NOUN} under our {PLURAL_NOUN} {TEMPORAL_PHRASE}.
 Living on Earth is {ADJECTIVE}, but {CLAUSE}.
 We are all {PLURAL_NOUN} wanting {INFINITIVAL_PHRASE}.
 Let's not try {INFINITIVAL_PHRASE}.
 I'm going {INFINITIVAL_PHRASE} because {CLAUSE}.
 A dream is {SOMETHING} your {THING_YOU_HAVE} makes.
 All {PLURAL_NOUN} have {SOMETHING}.
-After {SOMETHING}, my {THING_YOU_HAVE} said "{SENTENCE}"
+{Temporal_phrase}, my {THING_YOU_HAVE} said "{SENTENCE}"
 The {PLURAL_NOUN} pass and {CLAUSE}.
 Two can keep a secret if {CLAUSE}.
 Lost in {SOMETHING} that doesn't exist.
@@ -46,7 +46,7 @@ Have you ever confused {SOMETHING} with {ABSTRACT_NOUN}?
 {Adjective} things fall apart so {CLAUSE}.
 I am {SOMETHING} and {SOMETHING}.
 I'd be lying if I told you {CLAUSE}.
-Because when you stop and look around, {CLAUSE}.
+Because {TEMPORAL_PHRASE}, {CLAUSE}.
 I try {INFINITIVAL_PHRASE} so that {CLAUSE}.
 {Abstract_noun} is our only salvation from {SOMETHING}.
 Be fearless in the pursuit of {SOMETHING}.
@@ -61,7 +61,7 @@ I really {TRANSITIVE_VERB} you
 your real life is {ADJECTIVAL_PHRASE}
 you remember {INFINITIVAL_PHRASE}
 you should look for {PLURAL_NOUN}
-that's when I really need it
+that's {TEMPORAL_PHRASE}
 you're doing something wrong
 they were inside of us
 it does include {SOMETHING}
@@ -116,6 +116,17 @@ to figure out {SOMETHING} at once
 to succeed
 to think I can
 to {VERB} {ABSTRACT_NOUN}
+
+TEMPORAL_PHRASE
+in that moment
+when your {THING_YOU_HAVE} is in the {UNCOUNTABLE_NOUN}
+in the {SUPERLATIVE} of times
+when I least deserve it
+when we realized {CLAUSE}
+after {SOMETHING}
+when you stop and look around
+when I really need it
+in the end
 
 ADJECTIVAL_PHRASE
 {ADJECTIVE}
@@ -182,6 +193,7 @@ hopes
 love
 Amazon Prime subscription
 soul
+head
 
 PLURAL_NOUN
 risks
