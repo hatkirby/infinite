@@ -433,6 +433,8 @@ class fill_blanks {
 int main(int argc, char** argv)
 {
   srand(time(NULL));
+  rand(); rand(); rand(); rand();
+  
   Magick::InitializeMagick(nullptr);
   
   int delay = 60 * 60;
@@ -450,15 +452,17 @@ int main(int argc, char** argv)
   {
     std::cout << "Generating text..." << std::endl;
     
-    std::vector<std::string> forms;
+	std::map<std::string, std::vector<std::string>> groups;
     std::ifstream datafile("forms.txt");
     if (!datafile.is_open())
     {
       std::cout << "Could not find forms.txt" << std::endl;
       return 1;
     }
-  
+	
+    bool newgroup = true;
     std::string line;
+    std::string curgroup;
     while (getline(datafile, line))
     {
       if (line.back() == '\r')
@@ -466,13 +470,24 @@ int main(int argc, char** argv)
         line.pop_back();
       }
     
-      forms.push_back(line);
+      if (newgroup)
+      {
+        curgroup = line;
+        newgroup = false;
+      } else {
+        if (line.empty())
+        {
+          newgroup = true;
+        } else {
+          groups[curgroup].push_back(line);
+        }
+      }
     }
   
     datafile.close();
   
     verbly::data database {"data.sqlite3"};
-    std::string action = forms[rand() % forms.size()];
+    std::string action = "{FORM}";
     int tknloc;
     while ((tknloc = action.find("{")) != std::string::npos)
     {
@@ -487,12 +502,15 @@ int main(int argc, char** argv)
       if (canontkn == "NOUN")
       {
         result = database.nouns().is_not_proper().random().limit(1).with_complexity(1).run().front().singular_form();
-      } else if (canontkn == "PLURAL_NOUN")
+//      } else if (canontkn == "PLURAL_NOUN")
+//      {
+//        result = database.nouns().is_not_proper().requires_plural_form().random().limit(1).with_complexity(1).run().front().plural_form();
+//      } else if (canontkn == "ADJECTIVE")
+      // {
+        // result = database.adjectives().with_complexity(1).random().limit(1).run().front().base_form();
+      } else if (canontkn == "SUPERLATIVE")
       {
-        result = database.nouns().is_not_proper().requires_plural_form().random().limit(1).with_complexity(1).run().front().plural_form();
-      } else if (canontkn == "ADJECTIVE")
-      {
-        result = database.adjectives().with_complexity(1).random().limit(1).run().front().base_form();
+        result = database.adjectives().requires_superlative_form().random().limit(1).run().front().superlative_form();
       } else if (canontkn == "VERB")
       {
         result = database.verbs().random().limit(1).run().front().infinitive_form();
@@ -520,7 +538,7 @@ int main(int argc, char** argv)
       } else if (canontkn == "ADVERB")
       {
         result = database.adverbs().with_complexity(1).random().limit(1).run().front().base_form();
-      } else if (canontkn == "SENTENCE")
+      } else if (canontkn == "VERBLY_SENTENCE")
       {
         fill_blanks yeah {database};
         verbly::token action{
@@ -532,6 +550,10 @@ int main(int argc, char** argv)
           yeah.visit(action);
         }
         result = action.compile();
+      } else {
+		    auto group = groups[canontkn];
+        result = group[rand() % group.size()];
+        std::cout << canontkn << ": " << group.size() << std::endl;
       }
     
       std::string finalresult;
@@ -555,6 +577,8 @@ int main(int argc, char** argv)
     
       action.replace(tknloc, action.find("}")-tknloc+1, finalresult);
     }
+    
+    std::cout << action << std::endl;
   
     double zoom = 2.0;
     double target_w = 1280;
