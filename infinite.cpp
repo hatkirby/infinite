@@ -9,6 +9,7 @@
 #include <yaml-cpp/yaml.h>
 #include <unistd.h>
 #include <twitter.h>
+#include <algorithm>
 
 class fill_blanks {
   private:
@@ -731,12 +732,20 @@ int main(int argc, char** argv)
     }
   
     closedir(fontdir);
+    
+    std::string font = fonts[rand() % fonts.size()];
+    if (font == "Le_Super_Type_SemiBold.ttf")
+    {
+      std::transform(std::begin(action), std::end(action), std::begin(action), [] (char ch) {
+        return std::toupper(ch);
+      });
+    }
   
     Magick::Image textimage(Magick::Geometry(target_w, target_h), "transparent");
     textimage.type(Magick::TrueColorMatteType);
     textimage.fillColor(Magick::Color("white"));
     textimage.fontPointsize(72.0);
-    textimage.font("fonts/" + fonts[rand() % fonts.size()]);
+    textimage.font("fonts/" + font);
   
     auto words = verbly::split<std::list<std::string>>(action, " ");
     std::string towrite = "";
