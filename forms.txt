@@ -1,5 +1,5 @@
 FORM
-And {TEMPORAL_PHRASE}, I could swear {CLAUSE}.
+And {TEMPORAL_PHRASE}, I could {INFINITIVAL_PHRASE}.
 In {LANGUAGE}, {CLAUSE} and {CLAUSE}.
 Do you love the color of the {UNCOUNTABLE_NOUN}? {SENTENCE}
 You all laugh because I'm {ADJECTIVAL_PHRASE}. {SENTENCE}
@@ -7,35 +7,35 @@ Life begins at {SOMETHING}.
 Every new {NOUN} is {SOMETHING}.
 If you {TRANSITIVE_VERB} people, {CLAUSE}.
 {Temporal_phrase}, {CLAUSE}.
-I just want {INFINITIVAL_PHRASE} and say that {CLAUSE}.
+I just want to {INFINITIVAL_PHRASE} and {INFINITIVAL_PHRASE}.
 Wanderlust: {SOMETHING}.
-Do not go where the {UNCOUNTABLE_NOUN} may lead. {SENTENCE}
+Do not {INFINITIVAL_PHRASE}. {SENTENCE}
 {Verbing} isn't easy for those who {VERB}.
 You build up a world of {PLURAL_NOUN} because {CLAUSE}.
-{Adjective} is just {SOMETHING}.
-Find a beautiful {NOUN} and get {VERBED}.
+Normal is just {SOMETHING}.
+Find a beautiful {NOUN} and {INFINITIVAL_PHRASE}.
 Keep your feet on the {UNCOUNTABLE_NOUN} {TEMPORAL_PHRASE}.
 {Uncountable_noun} can be found {TEMPORAL_PHRASE} if {CLAUSE}.
 May the {UNCOUNTABLE_NOUN} be ever in your {THING_YOU_HAVE}.
 Do something today that your future self will {TRANSITIVE_VERB} you for.
-Sometimes it's so {ADJECTIVE} {INFINITIVAL_PHRASE}.
+Sometimes it's so {ADJECTIVE} to {INFINITIVAL_PHRASE}.
 When it rains, {CLAUSE}. {SENTENCE}
-I'd rather {TRANSITIVE_VERB} the {UNCOUNTABLE_NOUN} than wait for it.
+I'd rather {TRANSITIVE_VERB} the {UNCOUNTABLE_NOUN} than {INFINITIVAL_PHRASE}.
 There's a {NOUN} in all of us.
-You were born {INFINITIVAL_PHRASE}, not to be perfect.
+You were born to {INFINITIVAL_PHRASE}, not to be perfect.
 {Transitive_verb} me {TEMPORAL_PHRASE} because {CLAUSE}.
 Normal is {ADJECTIVAL_PHRASE}.
 If nobody {VERBS} you, {CLAUSE}.
-Don't waste your whole {THING_YOU_HAVE} trying {INFINITIVAL_PHRASE}.
-I can't explain how {ADJECTIVE} it is {INFINITIVAL_PHRASE}.
+Don't waste your whole {THING_YOU_HAVE} trying to {INFINITIVAL_PHRASE}.
+I can't explain how {ADJECTIVE} it is to {INFINITIVAL_PHRASE}.
 I will follow you into the {UNCOUNTABLE_NOUN}.
 I think about {ABSTRACT_NOUN} a lot. {SENTENCE}
 {Noun}ophobia: (n.) the fear of {VERBING} {SOMETHING}.
 We stopped looking for {PLURAL_NOUN} under our {PLURAL_NOUN} {TEMPORAL_PHRASE}.
 Living on Earth is {ADJECTIVE}, but {CLAUSE}.
-We are all {PLURAL_NOUN} wanting {INFINITIVAL_PHRASE}.
-Let's not try {INFINITIVAL_PHRASE}.
-I'm going {INFINITIVAL_PHRASE} because {CLAUSE}.
+We are all {PLURAL_NOUN} wanting to {INFINITIVAL_PHRASE}.
+Let's not try to {INFINITIVAL_PHRASE}.
+I'm going to {INFINITIVAL_PHRASE} because {CLAUSE}.
 A dream is {SOMETHING} your {THING_YOU_HAVE} makes.
 All {PLURAL_NOUN} have {SOMETHING}.
 {Temporal_phrase}, my {THING_YOU_HAVE} said "{SENTENCE}"
@@ -47,31 +47,54 @@ Have you ever confused {SOMETHING} with {ABSTRACT_NOUN}?
 I am {SOMETHING} and {SOMETHING}.
 I'd be lying if I told you {CLAUSE}.
 Because {TEMPORAL_PHRASE}, {CLAUSE}.
-I try {INFINITIVAL_PHRASE} so that {CLAUSE}.
+I try to {INFINITIVAL_PHRASE} so that {CLAUSE}.
 {Abstract_noun} is our only salvation from {SOMETHING}.
 Be fearless in the pursuit of {SOMETHING}.
+It only hurts {TEMPORAL_PHRASE}.
+I look for {SOMETHING} in {SOMETHING}.
+I don't hate you because {CLAUSE}. {SENTENCE}
+I {PAST_OCCASION}. {SENTENCE}
+Do you know what hurts the most about {SOMETHING}? Not being able to {INFINITIVAL_PHRASE}.
+Everyone wants {ABSTRACT_NOUN}. Nobody wants {ABSTRACT_NOUN}. But you can't have {SOMETHING} without {SOMETHING}.
+People say {VERB} is a strong word, but so is {VERB}, and {CLAUSE}.
+Your {THING_YOU_HAVE} look so {ADJECTIVE}; would they like to {INFINITIVAL_PHRASE}?
+I'm {VERBING} you and it's {VERBING} me.
+You could never {INFINITIVAL_PHRASE}.
+Give me one reason why we should {INFINITIVAL_PHRASE}.
+You make me the {SUPERLATIVE} person alive.
+Fall in love only when {CLAUSE}, not when {CLAUSE}.
+I want {SOMETHING}. I don't know if I need it, but {CLAUSE}.
+I don't know you but {CLAUSE}.
 
 CLAUSE
 we were {ADJECTIVAL_PHRASE}
 you don't say "I am {ADJECTIVE}", you say "{VERBLY_SENTENCE}"
 I think that's beautiful
-you have no time {INFINITIVAL_PHRASE}
+you have no time to {INFINITIVAL_PHRASE}
 we only regret the {PLURAL_NOUN} we didn't take
 I really {TRANSITIVE_VERB} you
 your real life is {ADJECTIVAL_PHRASE}
-you remember {INFINITIVAL_PHRASE}
+you remember to {INFINITIVAL_PHRASE}
 you should look for {PLURAL_NOUN}
 that's {TEMPORAL_PHRASE}
 you're doing something wrong
 they were inside of us
 it does include {SOMETHING}
-I'm crazy enough {INFINITIVAL_PHRASE}
+I'm crazy enough to {INFINITIVAL_PHRASE}
 we haven't {VERBED} anything
 one of them is {ADJECTIVE}
 better things can fall together
 losing you was something I could handle
 this life is {ADJECTIVAL_PHRASE}
 I can {VERB} with myself
+you left
+you pretended that {CLAUSE}
+you wouldn't
+something inside me {DOES_A_THING}
+people throw that around like it's {SOMETHING}
+you're {ADJECTIVAL_PHRASE}
+I'd die to {INFINITIVAL_PHRASE}
+I want you all the more for that
 
 SENTENCE
 Which one?
@@ -82,11 +105,13 @@ Go instead where there is no {NOUN} and leave a {NOUN}.
 When it's dark, {CLAUSE}.
 More than I probably should.
 Maybe {ABSTRACT_NOUN} isn't for everyone.
+I hate you because {CLAUSE}.
+And sometimes {TEMPORAL_PHRASE}, {CLAUSE}.
 
 SOMETHING
 the end of your {THING_YOU_HAVE}
-a new chance {INFINITIVAL_PHRASE}
-a very strong and {ADJECTIVE} impulse or desire {INFINITIVAL_PHRASE}
+a new chance to {INFINITIVAL_PHRASE}
+a very strong and {ADJECTIVE} impulse or desire to {INFINITIVAL_PHRASE}
 a setting on a washing machine
 someone you love
 a free trip around the sun
@@ -96,26 +121,40 @@ an end
 a year in therapy
 a world
 a dream
-a day{VERB}er
-a night{VERB}er
+a daydreamer
+a nightthinker
 the horror of {ABSTRACT_NOUN}
 what sets your {THING_YOU_HAVE} on fire
+you
+everyone
+a rainbow
+a little pain
+nothing
 
 INFINITIVAL_PHRASE
-to be {ADJECTIVAL_PHRASE}
-to get back what was {VERBED}
-to wait for something that never {VERBS}
-to be completely upfront
-to see the good {PLURAL_NOUN} passing by
-to {TRANSITIVE_VERB} them
-to switch on the {UNCOUNTABLE_NOUN}
-to change your {THING_YOU_HAVE}
-to {TRANSITIVE_VERB} the {UNCOUNTABLE_NOUN}
-to be completely out of touch with {ABSTRACT_NOUN}
-to figure out {SOMETHING} at once
-to succeed
-to think I can
-to {VERB} {ABSTRACT_NOUN}
+be {ADJECTIVAL_PHRASE}
+get back what was {VERBED}
+wait for something that never {VERBS}
+be completely upfront
+see the good {PLURAL_NOUN} passing by
+{TRANSITIVE_VERB} them
+switch on the {UNCOUNTABLE_NOUN}
+change your {THING_YOU_HAVE}
+{TRANSITIVE_VERB} the {UNCOUNTABLE_NOUN}
+be completely out of touch with {ABSTRACT_NOUN}
+figure out {SOMETHING} at once
+succeed
+think I can
+{VERB} {ABSTRACT_NOUN}
+{TRANSITIVE_VERB} my {THING_YOU_HAVE}
+swear {CLAUSE}
+say that {CLAUSE}
+go where the {UNCOUNTABLE_NOUN} may lead
+get {VERBED}
+wait for it
+waste my {THING_YOU_HAVE}
+start over again
+find out
 
 TEMPORAL_PHRASE
 in that moment
@@ -127,6 +166,8 @@ after {SOMETHING}
 when you stop and look around
 when I really need it
 in the end
+when you start pretending it doesn't
+when that happens
 
 ADJECTIVAL_PHRASE
 {ADJECTIVE}
@@ -138,6 +179,7 @@ the same
 getting fucked
 getting {VERBED}
 pretty amazing
+ready
 
 ADJECTIVE
 infinite
@@ -156,6 +198,7 @@ destined
 surreal
 indecent
 dead
+lonely
 
 ABSTRACT_NOUN
 art
@@ -168,6 +211,7 @@ misfortune
 wealth
 {ADJECTIVE} inadequacy
 reality
+pain
 
 UNCOUNTABLE_NOUN
 sky
@@ -194,6 +238,8 @@ love
 Amazon Prime subscription
 soul
 head
+lips
+time
 
 PLURAL_NOUN
 risks
@@ -223,3 +269,10 @@ inter
 disgrace
 eat
 butter
+waste
+
+DOES_A_THING
+shuts off
+
+PAST_OCCASION
+got hurt
