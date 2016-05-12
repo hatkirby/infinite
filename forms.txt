@@ -65,6 +65,14 @@ You make me the {SUPERLATIVE} person alive.
 Fall in love only when {CLAUSE}, not when {CLAUSE}.
 I want {SOMETHING}. I don't know if I need it, but {CLAUSE}.
 I don't know you but {CLAUSE}.
+People we {TRANSITIVE_VERB} make mistakes, but guess what? {SENTENCE}
+{Gerund} is simple; it's {SOMETHING} that makes it so difficult.
+Sitting {LOCAL_PHRASE} {GERUND} means absolutely everything to me.
+Stop {GERUND} and {INFINITIVAL_PHRASE}.
+Sometimes you have to {INFINITIVAL_PHRASE} to {INFINITIVAL_PHRASE}.
+I don't hate you; I hate {SOMETHING}.
+I don't understand {SOMETHING} but {CLAUSE}.
+Everyday, I fight {SOMETHING}, telling myself that if {CLAUSE}, you would.
 
 CLAUSE
 we were {ADJECTIVAL_PHRASE}
@@ -95,18 +103,21 @@ people throw that around like it's {SOMETHING}
 you're {ADJECTIVAL_PHRASE}
 I'd die to {INFINITIVAL_PHRASE}
 I want you all the more for that
+I laugh anyway
+you wanted to {INFINITIVAL_PHRASE}
 
 SENTENCE
 Which one?
 {CLAUSE}.
 {FORM}
 I laugh because you are all {ADJECTIVAL_PHRASE}.
-Go instead where there is no {NOUN} and leave a {NOUN}.
+Go instead {LOCAL_PHRASE} and leave a {NOUN}.
 When it's dark, {CLAUSE}.
 More than I probably should.
 Maybe {ABSTRACT_NOUN} isn't for everyone.
 I hate you because {CLAUSE}.
 And sometimes {TEMPORAL_PHRASE}, {CLAUSE}.
+We still love them.
 
 SOMETHING
 the end of your {THING_YOU_HAVE}
@@ -130,6 +141,13 @@ everyone
 a rainbow
 a little pain
 nothing
+what you leave behind
+what could go wrong
+what could go right
+what you've done to me
+half of the things you say
+this fear that one day you are going to {INFINITIVAL_PHRASE}
+the urge to {INFINITIVAL_PHRASE}
 
 INFINITIVAL_PHRASE
 be {ADJECTIVAL_PHRASE}
@@ -149,12 +167,28 @@ think I can
 {TRANSITIVE_VERB} my {THING_YOU_HAVE}
 swear {CLAUSE}
 say that {CLAUSE}
-go where the {UNCOUNTABLE_NOUN} may lead
+go {LOCAL_PHRASE}
 get {VERBED}
 wait for it
 waste my {THING_YOU_HAVE}
 start over again
 find out
+think of {SOMETHING}
+forget what you want
+remember what you need
+discover that I'm {ADJECTIVAL_PHRASE}
+{INFINITIVAL_PHRASE} or {INFINITIVAL_PHRASE}
+{INFINITIVAL_PHRASE} and {INFINITIVAL_PHRASE}
+{TRANSITIVE_VERB} you
+{TRANSITIVE_VERB} me
+
+GERUND
+moving on
+getting fucked
+getting {VERBED}
+pretending it doesn't
+doing absolutely nothing
+being afraid of {SOMETHING}
 
 TEMPORAL_PHRASE
 in that moment
@@ -166,8 +200,13 @@ after {SOMETHING}
 when you stop and look around
 when I really need it
 in the end
-when you start pretending it doesn't
+when you start {GERUND}
 when that happens
+
+LOCAL_PHRASE
+where the {UNCOUNTABLE_NOUN} may lead
+next to {SOMETHING}
+where there is no {NOUN}
 
 ADJECTIVAL_PHRASE
 {ADJECTIVE}
@@ -176,10 +215,10 @@ ADJECTIVAL_PHRASE
 {ADJECTIVE}
 {ADJECTIVE}
 the same
-getting fucked
-getting {VERBED}
+{GERUND}
 pretty amazing
 ready
+not as {ADJECTIVE} as you once thought I was
 
 ADJECTIVE
 infinite
@@ -199,6 +238,7 @@ surreal
 indecent
 dead
 lonely
+great
 
 ABSTRACT_NOUN
 art
@@ -270,6 +310,9 @@ disgrace
 eat
 butter
 waste
+text
+talk to
+speak to
 
 DOES_A_THING
 shuts off
