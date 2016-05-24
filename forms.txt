@@ -1,7 +1,7 @@
 FORM
 And {TEMPORAL_PHRASE}, I could {INFINITIVAL_PHRASE}.
 In {LANGUAGE}, {CLAUSE} and {CLAUSE}.
-Do you love the color of the {UNCOUNTABLE_NOUN}? {SENTENCE}
+Do you love the color of {SOMETHING}? {SENTENCE}
 You all laugh because I'm {ADJECTIVAL_PHRASE}. {SENTENCE}
 Life begins at {SOMETHING}.
 Every new {NOUN} is {SOMETHING}.
@@ -10,17 +10,17 @@ If you {TRANSITIVE_VERB} people, {CLAUSE}.
 I just want to {INFINITIVAL_PHRASE} and {INFINITIVAL_PHRASE}.
 Wanderlust: {SOMETHING}.
 Do not {INFINITIVAL_PHRASE}. {SENTENCE}
-{Verbing} isn't easy for those who {VERB}.
-You build up a world of {PLURAL_NOUN} because {CLAUSE}.
+{Gerund} isn't easy for those who {VERB}.
+You build up a world of {ABSTRACT_NOUN} because {CLAUSE}.
 Normal is just {SOMETHING}.
 Find a beautiful {NOUN} and {INFINITIVAL_PHRASE}.
-Keep your feet on the {UNCOUNTABLE_NOUN} {TEMPORAL_PHRASE}.
-{Uncountable_noun} can be found {TEMPORAL_PHRASE} if {CLAUSE}.
-May the {UNCOUNTABLE_NOUN} be ever in your {THING_YOU_HAVE}.
+Keep your feet on {SOMETHING} {TEMPORAL_PHRASE}.
+{Abstract_noun} can be found {TEMPORAL_PHRASE} if {CLAUSE}.
+May {SOMETHING} be ever in your favor.
 Do something today that your future self will {TRANSITIVE_VERB} you for.
 Sometimes it's so {ADJECTIVE} to {INFINITIVAL_PHRASE}.
 When it rains, {CLAUSE}. {SENTENCE}
-I'd rather {TRANSITIVE_VERB} the {UNCOUNTABLE_NOUN} than {INFINITIVAL_PHRASE}.
+I'd rather {TRANSITIVE_VERB} {SOMETHING} than {INFINITIVAL_PHRASE}.
 There's a {NOUN} in all of us.
 You were born to {INFINITIVAL_PHRASE}, not to be perfect.
 {Transitive_verb} me {TEMPORAL_PHRASE} because {CLAUSE}.
@@ -28,7 +28,7 @@ Normal is {ADJECTIVAL_PHRASE}.
 If nobody {VERBS} you, {CLAUSE}.
 Don't waste your whole {THING_YOU_HAVE} trying to {INFINITIVAL_PHRASE}.
 I can't explain how {ADJECTIVE} it is to {INFINITIVAL_PHRASE}.
-I will follow you into the {UNCOUNTABLE_NOUN}.
+I will follow you into {SOMETHING}.
 I think about {ABSTRACT_NOUN} a lot. {SENTENCE}
 {Noun}ophobia: (n.) the fear of {VERBING} {SOMETHING}.
 We stopped looking for {PLURAL_NOUN} under our {PLURAL_NOUN} {TEMPORAL_PHRASE}.
@@ -36,7 +36,7 @@ Living on Earth is {ADJECTIVE}, but {CLAUSE}.
 We are all {PLURAL_NOUN} wanting to {INFINITIVAL_PHRASE}.
 Let's not try to {INFINITIVAL_PHRASE}.
 I'm going to {INFINITIVAL_PHRASE} because {CLAUSE}.
-A dream is {SOMETHING} your {THING_YOU_HAVE} makes.
+A dream is a {NOUN} your {THING_YOU_HAVE} makes.
 All {PLURAL_NOUN} have {SOMETHING}.
 {Temporal_phrase}, my {THING_YOU_HAVE} said "{SENTENCE}"
 The {PLURAL_NOUN} pass and {CLAUSE}.
@@ -73,6 +73,13 @@ Sometimes you have to {INFINITIVAL_PHRASE} to {INFINITIVAL_PHRASE}.
 I don't hate you; I hate {SOMETHING}.
 I don't understand {SOMETHING} but {CLAUSE}.
 Everyday, I fight {SOMETHING}, telling myself that if {CLAUSE}, you would.
+{Temporal_phrase}, {CLAUSE}. {SENTENCE}
+{Something} {DOES_A_THING} but also {DOES_A_THING}.
+But {TEMPORAL_PHRASE}, I don't care. {SENTENCE}
+Everything happens for a reason. Maybe you can't {INFINITIVAL_PHRASE} {TEMPORAL_PHRASE}, but {TEMPORAL_PHRASE}, it will {INFINITIVAL_PHRASE}.
+There's nothing wrong in {GERUND}. {SENTENCE}
+I blame {PLURAL_NOUN} for my {THING_YOU_HAVE}.
+Look for {SOMETHING} with {SOMETHING}, ask if {CLAUSE}, and {CLAUSE}.
 
 CLAUSE
 we were {ADJECTIVAL_PHRASE}
@@ -104,7 +111,12 @@ you're {ADJECTIVAL_PHRASE}
 I'd die to {INFINITIVAL_PHRASE}
 I want you all the more for that
 I laugh anyway
-you wanted to {INFINITIVAL_PHRASE}
+you {PAST_OCCASION}
+she {PAST_OCCASION}
+it flew away from my reach
+I'd probably be {ADJECTIVAL_PHRASE}
+she {DOES_A_THING}
+{PRONOUN} will {INFINITIVAL_PHRASE}
 
 SENTENCE
 Which one?
@@ -118,6 +130,9 @@ Maybe {ABSTRACT_NOUN} isn't for everyone.
 I hate you because {CLAUSE}.
 And sometimes {TEMPORAL_PHRASE}, {CLAUSE}.
 We still love them.
+But it {PAST_OCCASION}, so she {PAST_OCCASION} and {PAST_OCCASION}.
+I could go {TEMPORAL_PHRASE} with you, and {CLAUSE}.
+What's wrong is {GERUND}.
 
 SOMETHING
 the end of your {THING_YOU_HAVE}
@@ -133,7 +148,6 @@ a year in therapy
 a world
 a dream
 a daydreamer
-a nightthinker
 the horror of {ABSTRACT_NOUN}
 what sets your {THING_YOU_HAVE} on fire
 you
@@ -148,6 +162,17 @@ what you've done to me
 half of the things you say
 this fear that one day you are going to {INFINITIVAL_PHRASE}
 the urge to {INFINITIVAL_PHRASE}
+a girl
+the world
+paradise
+a true friend
+the sky
+the ground
+the odds
+the clouds
+the dark
+the road
+a broken smile
 
 INFINITIVAL_PHRASE
 be {ADJECTIVAL_PHRASE}
@@ -156,9 +181,9 @@ wait for something that never {VERBS}
 be completely upfront
 see the good {PLURAL_NOUN} passing by
 {TRANSITIVE_VERB} them
-switch on the {UNCOUNTABLE_NOUN}
+switch on the light
 change your {THING_YOU_HAVE}
-{TRANSITIVE_VERB} the {UNCOUNTABLE_NOUN}
+{TRANSITIVE_VERB} {SOMETHING}
 be completely out of touch with {ABSTRACT_NOUN}
 figure out {SOMETHING} at once
 succeed
@@ -181,6 +206,8 @@ discover that I'm {ADJECTIVAL_PHRASE}
 {INFINITIVAL_PHRASE} and {INFINITIVAL_PHRASE}
 {TRANSITIVE_VERB} you
 {TRANSITIVE_VERB} me
+see the reason
+do the same
 
 GERUND
 moving on
@@ -189,10 +216,13 @@ getting {VERBED}
 pretending it doesn't
 doing absolutely nothing
 being afraid of {SOMETHING}
+{VERBING}
+showing you care for someone
+expecting them to {INFINITIVAL_PHRASE}
 
 TEMPORAL_PHRASE
 in that moment
-when your {THING_YOU_HAVE} is in the {UNCOUNTABLE_NOUN}
+when your {THING_YOU_HAVE} is in {SOMETHING}
 in the {SUPERLATIVE} of times
 when I least deserve it
 when we realized {CLAUSE}
@@ -202,11 +232,16 @@ when I really need it
 in the end
 when you start {GERUND}
 when that happens
+when I was just {SOMETHING}
+now
+when it is finally revealed
+for a while
 
 LOCAL_PHRASE
-where the {UNCOUNTABLE_NOUN} may lead
+where {SOMETHING} may lead
 next to {SOMETHING}
 where there is no {NOUN}
+anywhere
 
 ADJECTIVAL_PHRASE
 {ADJECTIVE}
@@ -239,6 +274,16 @@ indecent
 dead
 lonely
 great
+happy
+racist
+lovely
+moving
+artistic
+poetic
+aesthetic
+attractive
+generic
+loved
 
 ABSTRACT_NOUN
 art
@@ -252,25 +297,15 @@ wealth
 {ADJECTIVE} inadequacy
 reality
 pain
-
-UNCOUNTABLE_NOUN
-sky
-road
-ground
-clouds
-light
-happiness
-serenity
-desirability
-misfortune
-wealth
-{ADJECTIVE} inadequacy
-odds
+anger
+reason
+truth
+homosexuality
+lies
 
 THING_YOU_HAVE
 fears
 life
-favor
 heart
 therapist
 hopes
@@ -280,6 +315,9 @@ soul
 head
 lips
 time
+weaknesses
+strengths
+high expectations of relationships
 
 PLURAL_NOUN
 risks
@@ -294,6 +332,20 @@ needs
 experiences
 freedoms
 years
+stars
+pictures of {SOMETHING}
+Christmas presents
+{ADJECTIVE} Facebook posts
+monsters
+beds
+piles of money
+Apple products
+#B612 filters
+Pokemon
+computers
+concert tickets
+mournful ballads
+movies
 
 TRANSITIVE_VERB
 destroy
@@ -313,9 +365,37 @@ waste
 text
 talk to
 speak to
+blow
+69
+resurrect
+consume
+discard
+germinate
+water
+care about
+need
+trust
+think about
+know
+grade
+make a sandwich for
 
 DOES_A_THING
 shuts off
+knows your {THING_YOU_HAVE}
+shows you your {THING_YOU_HAVE}
+wants to stay {TEMPORAL_PHRASE}
 
 PAST_OCCASION
 got hurt
+wanted to {INFINITIVAL_PHRASE}
+expected {SOMETHING}
+ran away {LOCAL_PHRASE}
+dreamed of {SOMETHING}
+
+PRONOUN
+he
+she
+they
+you
+I

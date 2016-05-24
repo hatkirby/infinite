@@ -12,7 +12,7 @@ pkg_check_modules(sqlite3 sqlite3>=3.8.3 REQUIRED)
 pkg_check_modules(GraphicsMagick GraphicsMagick++ REQUIRED)
 
 include_directories(${GraphicsMagick_INCLUDE_DIRS} ${sqlite3_INCLUDE_DIR} vendor/verbly/lib vendor/libtwittercpp/src vendor/yaml-cpp/include vendor/libtwittercpp/vendor/json/src vendor/libtwittercpp/vendor/curlcpp/include)
-link_directories(${sqlite3_LIBRARY_DIRS})
+link_directories(${sqlite3_LIBRARY_DIRS} ${GraphicsMagick_LIBRARY_DIRS})
 add_executable(infinite infinite.cpp color.cpp fractal.cpp matrix3x3.cpp vector3d.cpp tinyxml2.cpp triangle.cpp)
 set_property(TARGET infinite PROPERTY CXX_STANDARD 11)
 set_property(TARGET infinite PROPERTY CXX_STANDARD_REQUIRED ON)
