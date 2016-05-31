@@ -790,7 +790,7 @@ int main(int argc, char** argv)
     }
     
     std::string tweetText;
-    size_t tweetLim = 140 - client.getConfiguration().getCharactersReservedPerMedia() - client.getUser().getScreenName().length() - 5;
+    size_t tweetLim = 140 - client.getConfiguration().getCharactersReservedPerMedia() - client.getUser().getScreenName().length() - 6;
     if (action.length() > tweetLim)
     {
       tweetText = "\"" + action.substr(0, tweetLim - 1) + "…\" --@" + client.getUser().getScreenName();
