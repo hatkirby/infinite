@@ -733,10 +733,11 @@ int main(int argc, char** argv)
   
     closedir(fontdir);
     
+    std::string subaction = action;
     std::string font = fonts[rand() % fonts.size()];
     if (font == "Le_Super_Type_SemiBold.ttf")
     {
-      std::transform(std::begin(action), std::end(action), std::begin(action), [] (char ch) {
+      std::transform(std::begin(subaction), std::end(subaction), std::begin(subaction), [] (char ch) {
         return std::toupper(ch);
       });
     }
@@ -747,7 +748,7 @@ int main(int argc, char** argv)
     textimage.fontPointsize(72.0);
     textimage.font("fonts/" + font);
   
-    auto words = verbly::split<std::list<std::string>>(action, " ");
+    auto words = verbly::split<std::list<std::string>>(subaction, " ");
     std::string towrite = "";
     std::string curline = "";
     Magick::TypeMetric metric;
@@ -788,8 +789,17 @@ int main(int argc, char** argv)
       continue;
     }
     
+    std::string tweetText;
+    size_t tweetLim = 140 - client.getConfiguration().getCharactersReservedPerMedia() - 2;
+    if (action.length() > tweetLim)
+    {
+      tweetText = "\"" + action.substr(0, tweetLim - 1) + "…\"";
+    } else {
+      tweetText = "\"" + action + "\"";
+    }
+    
     twitter::tweet tw;
-    resp = client.updateStatus("", tw, {media_id});
+    resp = client.updateStatus(tweetText, tw, twitter::tweet(), {media_id});
     if (resp != twitter::response::ok)
     {
       std::cout << "Twitter error while tweeting: " << resp << std::endl;
