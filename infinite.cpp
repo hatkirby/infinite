@@ -7,9 +7,10 @@
 #include <fstream>
 #include <dirent.h>
 #include <yaml-cpp/yaml.h>
-#include <unistd.h>
 #include <twitter.h>
 #include <algorithm>
+#include <chrono>
+#include <thread>
 
 class fill_blanks {
   private:
@@ -438,8 +439,6 @@ int main(int argc, char** argv)
   
   Magick::InitializeMagick(nullptr);
   
-  int delay = 60 * 60;
-  
   YAML::Node config = YAML::LoadFile("config.yml");
   twitter::auth auth;
   auth.setConsumerKey(config["consumer_key"].as<std::string>());
@@ -449,18 +448,16 @@ int main(int argc, char** argv)
   
   twitter::client client(auth);
   
-  for (;;)
+  // Parse forms file
+  std::map<std::string, std::vector<std::string>> groups;
   {
-    std::cout << "Generating text..." << std::endl;
-    
-	std::map<std::string, std::vector<std::string>> groups;
     std::ifstream datafile("forms.txt");
     if (!datafile.is_open())
     {
       std::cout << "Could not find forms.txt" << std::endl;
       return 1;
     }
-	
+
     bool newgroup = true;
     std::string line;
     std::string curgroup;
@@ -470,7 +467,7 @@ int main(int argc, char** argv)
       {
         line.pop_back();
       }
-    
+  
       if (newgroup)
       {
         curgroup = line;
@@ -484,10 +481,38 @@ int main(int argc, char** argv)
         }
       }
     }
+  }
   
-    datafile.close();
+  // Read in fonts
+  std::vector<std::string> fonts;
+  {
+    DIR* fontdir;
+    struct dirent* ent;
+    if ((fontdir = opendir("fonts")) == nullptr)
+    {
+      std::cout << "Couldn't find fonts." << std::endl;
+      return -1;
+    }
+
+    while ((ent = readdir(fontdir)) != nullptr)
+    {
+      std::string dname(ent->d_name);
+      if ((dname.find(".otf") != std::string::npos) || (dname.find(".ttf") != std::string::npos))
+      {
+        fonts.push_back(dname);
+      }
+    }
+
+    closedir(fontdir);
+  }
+
+  verbly::data database {"data.sqlite3"};
   
-    verbly::data database {"data.sqlite3"};
+  for (;;)
+  {
+    // Generate the text
+    std::cout << "Generating text..." << std::endl;
+    
     std::string action = "{FORM}";
     int tknloc;
     while ((tknloc = action.find("{")) != std::string::npos)
@@ -503,12 +528,6 @@ int main(int argc, char** argv)
       if (canontkn == "NOUN")
       {
         result = database.nouns().is_not_proper().random().limit(1).with_complexity(1).run().front().singular_form();
-//      } else if (canontkn == "PLURAL_NOUN")
-//      {
-//        result = database.nouns().is_not_proper().requires_plural_form().random().limit(1).with_complexity(1).run().front().plural_form();
-//      } else if (canontkn == "ADJECTIVE")
-      // {
-        // result = database.adjectives().with_complexity(1).random().limit(1).run().front().base_form();
       } else if (canontkn == "SUPERLATIVE")
       {
         result = database.adjectives().requires_superlative_form().random().limit(1).run().front().superlative_form();
@@ -578,21 +597,23 @@ int main(int argc, char** argv)
     
       action.replace(tknloc, action.find("}")-tknloc+1, finalresult);
     }
-    
+
     std::cout << action << std::endl;
-  
+
+    // Generate the fractal
     double zoom = 2.0;
     double target_w = 1280;
     double target_h = 800;
     double sample_rate = 3;
-    
-    std::cout << "Generating flame fractal..." << std::endl;
   
     Magick::Image image(Magick::Geometry(target_w, target_h), "black");
     image.type(Magick::TrueColorMatteType);
   
-    for (;;)
+    double coverage = 0.0;
+    while (coverage < 0.05)
     {
+      std::cout << "Generating flame fractal..." << std::endl;
+      
       Fractal fractal = Fractal::random();
       std::vector<Color> irradiance(target_w*target_h*sample_rate*sample_rate, Color(0.0, 0.0, 0.0, 0.0));
 
@@ -700,39 +721,13 @@ int main(int argc, char** argv)
         }
       }
   
-      double coverage = ((double)covered/(double)(target_w*target_h));
+      coverage = ((double)covered/(double)(target_w*target_h));
       std::cout << coverage << " coverage" << std::endl;
   
       view.sync();
-    
-      if (coverage >= 0.05)
-      {
-        break;
-      }
-    
-      std::cout << "Regenerating..." << std::endl;
     }
-  
-    DIR* fontdir;
-    struct dirent* ent;
-    if ((fontdir = opendir("fonts")) == nullptr)
-    {
-      std::cout << "Couldn't find fonts." << std::endl;
-      return -1;
-    }
-  
-    std::vector<std::string> fonts;
-    while ((ent = readdir(fontdir)) != nullptr)
-    {
-      std::string dname(ent->d_name);
-      if ((dname.find(".otf") != std::string::npos) || (dname.find(".ttf") != std::string::npos))
-      {
-        fonts.push_back(dname);
-      }
-    }
-  
-    closedir(fontdir);
     
+    // Put text on top of the fractal
     std::string subaction = action;
     std::string font = fonts[rand() % fonts.size()];
     if (font == "Le_Super_Type_SemiBold.ttf")
@@ -779,16 +774,6 @@ int main(int argc, char** argv)
     
     std::cout << "Generated image!" << std::endl << "Tweeting..." << std::endl;
     
-    long media_id;
-    twitter::response resp = client.uploadMedia("image/jpeg", (const char*) outputimg.data(), outputimg.length(), media_id);
-    if (resp != twitter::response::ok)
-    {
-      std::cout << "Twitter error while uploading image: " << resp << std::endl;
-      sleep(delay);
-      
-      continue;
-    }
-    
     std::string tweetText;
     size_t tweetLim = 140 - client.getConfiguration().getCharactersReservedPerMedia() - client.getUser().getScreenName().length() - 6;
     if (action.length() > tweetLim)
@@ -798,18 +783,17 @@ int main(int argc, char** argv)
       tweetText = "\"" + action + "\" --@" + client.getUser().getScreenName();
     }
     
-    twitter::tweet tw;
-    resp = client.updateStatus(tweetText, tw, twitter::tweet(), {media_id});
-    if (resp != twitter::response::ok)
+    try
     {
-      std::cout << "Twitter error while tweeting: " << resp << std::endl;
-      sleep(delay);
+      long media_id = client.uploadMedia("image/jpeg", (const char*) outputimg.data(), outputimg.length());
+      client.updateStatus(tweetText, {media_id});
       
-      continue;
+      std::cout << "Done!" << std::endl << "Waiting..." << std::endl << std::endl;
+    } catch (const twitter::twitter_error& e)
+    {
+      std::cout << "Twitter error: " << e.what() << std::endl;
     }
-    
-    std::cout << "Done!" << std::endl << "Waiting..." << std::endl << std::endl;
-    
-    sleep(delay);
+
+    std::this_thread::sleep_for(std::chrono::hours(1));
   }
 }
