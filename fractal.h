@@ -50,7 +50,7 @@ class Fractal {
     Color get_color(double c) const;
     
     static int load(const char* filename, Fractal& fractal);
-    static Fractal random();
+    static Fractal random(std::string colorsfile);
     
     double filterlevel = 0.5;
     double gamma = 2.2;

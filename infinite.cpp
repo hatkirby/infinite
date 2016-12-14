@@ -439,7 +439,15 @@ int main(int argc, char** argv)
   
   Magick::InitializeMagick(nullptr);
   
-  YAML::Node config = YAML::LoadFile("config.yml");
+  if (argc != 2)
+  {
+    std::cout << "usage: infinite [configfile]" << std::endl;
+    return -1;
+  }
+
+  std::string configfile(argv[1]);
+  YAML::Node config = YAML::LoadFile(configfile);
+
   twitter::auth auth;
   auth.setConsumerKey(config["consumer_key"].as<std::string>());
   auth.setConsumerSecret(config["consumer_secret"].as<std::string>());
@@ -451,10 +459,10 @@ int main(int argc, char** argv)
   // Parse forms file
   std::map<std::string, std::vector<std::string>> groups;
   {
-    std::ifstream datafile("forms.txt");
+    std::ifstream datafile(config["forms_file"].as<std::string>());
     if (!datafile.is_open())
     {
-      std::cout << "Could not find forms.txt" << std::endl;
+      std::cout << "Could not find forms file" << std::endl;
       return 1;
     }
 
@@ -484,11 +492,12 @@ int main(int argc, char** argv)
   }
   
   // Read in fonts
+  std::string fontsdirname = config["fonts"].as<std::string>();
   std::vector<std::string> fonts;
   {
     DIR* fontdir;
     struct dirent* ent;
-    if ((fontdir = opendir("fonts")) == nullptr)
+    if ((fontdir = opendir(fontsdirname.c_str())) == nullptr)
     {
       std::cout << "Couldn't find fonts." << std::endl;
       return -1;
@@ -506,7 +515,9 @@ int main(int argc, char** argv)
     closedir(fontdir);
   }
 
-  verbly::data database {"data.sqlite3"};
+  std::string colorsfile(config["colors"].as<std::string>());
+
+  verbly::data database {config["verbly_datafile"].as<std::string>()};
   
   for (;;)
   {
@@ -614,7 +625,7 @@ int main(int argc, char** argv)
     {
       std::cout << "Generating flame fractal..." << std::endl;
       
-      Fractal fractal = Fractal::random();
+      Fractal fractal = Fractal::random(colorsfile);
       std::vector<Color> irradiance(target_w*target_h*sample_rate*sample_rate, Color(0.0, 0.0, 0.0, 0.0));
 
       double x = (double)rand()/(double)RAND_MAX*2.0-1.0;
@@ -730,7 +741,7 @@ int main(int argc, char** argv)
     // Put text on top of the fractal
     std::string subaction = action;
     std::string font = fonts[rand() % fonts.size()];
-    if (font == "Le_Super_Type_SemiBold.ttf")
+    if (font.find("Le_Super_Type_SemiBold.ttf") != std::string::npos)
     {
       std::transform(std::begin(subaction), std::end(subaction), std::begin(subaction), [] (char ch) {
         return std::toupper(ch);
@@ -741,7 +752,7 @@ int main(int argc, char** argv)
     textimage.type(Magick::TrueColorMatteType);
     textimage.fillColor(Magick::Color("white"));
     textimage.fontPointsize(72.0);
-    textimage.font("fonts/" + font);
+    textimage.font(fontsdirname + "/" + font);
   
     auto words = verbly::split<std::list<std::string>>(subaction, " ");
     std::string towrite = "";

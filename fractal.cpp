@@ -508,7 +508,7 @@ int Fractal::load(const char* filename, Fractal& fractal)
   return 0;
 }
 
-Fractal Fractal::random()
+Fractal Fractal::random(std::string colorsfile)
 {
   Fractal fractal;
   
@@ -577,10 +577,10 @@ Fractal Fractal::random()
   }
   
   std::vector<std::string> colors;
-  std::ifstream colorfile("colors.txt");
+  std::ifstream colorfile(colorsfile);
   if (!colorfile.is_open())
   {
-    std::cout << "Could not find colors.txt" << std::endl;
+    std::cout << "Could not find colors file" << std::endl;
     exit(-1);
   }
   
