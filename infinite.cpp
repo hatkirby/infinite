@@ -432,38 +432,36 @@ class fill_blanks {
     }
 };
 
-int main(int argc, char** argv)
+infinite::infinite(
+  std::string configFile,
+  std::mt19937& rng) :
+    rng_(rng)
 {
-  srand(time(NULL));
-  rand(); rand(); rand(); rand();
+  // Load the config file.
+  YAML::Node config = YAML::LoadFile(configFile);
 
-  Magick::InitializeMagick(nullptr);
-
-  if (argc != 2)
-  {
-    std::cout << "usage: infinite [configfile]" << std::endl;
-    return -1;
-  }
-
-  std::string configfile(argv[1]);
-  YAML::Node config = YAML::LoadFile(configfile);
-
+  // Set up the Twitter client.
   twitter::auth auth;
   auth.setConsumerKey(config["consumer_key"].as<std::string>());
   auth.setConsumerSecret(config["consumer_secret"].as<std::string>());
   auth.setAccessKey(config["access_key"].as<std::string>());
   auth.setAccessSecret(config["access_secret"].as<std::string>());
 
-  twitter::client client(auth);
+  client_ = std::unique_ptr<twitter::client>(new twitter::client(auth));
+
+  // Set up the verbly database.
+  database_ = std::unique_ptr<verbly::database>(
+    new verbly::database(config["verbly_datafile"].as<std::string>()));
+
+  // Set up the sentence generator.
+  generator_ = std::unique_ptr<sentence>(new sentence(*database_, rng_));
 
   // Parse forms file
-  std::map<std::string, std::vector<std::string>> groups;
   {
     std::ifstream datafile(config["forms_file"].as<std::string>());
     if (!datafile.is_open())
     {
-      std::cout << "Could not find forms file" << std::endl;
-      return 1;
+      throw std::invalid_argument("Could not find forms file");
     }
 
     bool newgroup = true;
@@ -485,7 +483,7 @@ int main(int argc, char** argv)
         {
           newgroup = true;
         } else {
-          groups[curgroup].push_back(line);
+          groups_[curgroup].push_back(line);
         }
       }
     }
@@ -493,32 +491,37 @@ int main(int argc, char** argv)
 
   // Read in fonts
   std::string fontsdirname = config["fonts"].as<std::string>();
-  std::vector<std::string> fonts;
+  DIR* fontdir;
+  struct dirent* ent;
+  
+  if ((fontdir = opendir(fontsdirname.c_str())) == nullptr)
   {
-    DIR* fontdir;
-    struct dirent* ent;
-    if ((fontdir = opendir(fontsdirname.c_str())) == nullptr)
-    {
-      std::cout << "Couldn't find fonts." << std::endl;
-      return -1;
-    }
-
-    while ((ent = readdir(fontdir)) != nullptr)
-    {
-      std::string dname(ent->d_name);
-      if ((dname.find(".otf") != std::string::npos) || (dname.find(".ttf") != std::string::npos))
-      {
-        fonts.push_back(dname);
-      }
-    }
-
-    closedir(fontdir);
+    throw std::invalid_argument("Couldn't find fonts");
   }
+
+  while ((ent = readdir(fontdir)) != nullptr)
+  {
+    std::string dname(ent->d_name);
+    if ((dname.find(".otf") != std::string::npos)
+      || (dname.find(".ttf") != std::string::npos))
+    {
+      fonts_.push_back(dname);
+    }
+  }
+
+  closedir(fontdir);
 
   std::string colorsfile(config["colors"].as<std::string>());
 
-  verbly::data database {config["verbly_datafile"].as<std::string>()};
 
+
+}
+
+int main(int argc, char** argv)
+{
+
+
+  
   for (;;)
   {
     // Generate the text
@@ -776,12 +779,14 @@ int main(int argc, char** argv)
 
     textimage.annotate(towrite, Magick::CenterGravity);
     textimage.opacity(((double)MaxRGB) * 0.8);
-    image.composite(textimage, 0, 0, Magick::OverCompositeOp);
+    //image.composite(textimage, 0, 0, Magick::OverCompositeOp);
 
-    image.magick("jpg");
+    image.magick("png");
 
     Magick::Blob outputimg;
-    image.write(&outputimg);
+    //image.write(&outputimg);
+    image.write("output.png");
+    return 1;
 
     std::cout << "Generated image!" << std::endl << "Tweeting..." << std::endl;
 
