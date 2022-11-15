@@ -7,7 +7,8 @@
 #include <fstream>
 #include <dirent.h>
 #include <yaml-cpp/yaml.h>
-#include <twitter.h>
+#include <mastodonpp/mastodonpp.hpp>
+#include <json.hpp>
 #include <algorithm>
 #include <chrono>
 #include <thread>
@@ -448,13 +449,10 @@ int main(int argc, char** argv)
   std::string configfile(argv[1]);
   YAML::Node config = YAML::LoadFile(configfile);
 
-  twitter::auth auth;
-  auth.setConsumerKey(config["consumer_key"].as<std::string>());
-  auth.setConsumerSecret(config["consumer_secret"].as<std::string>());
-  auth.setAccessKey(config["access_key"].as<std::string>());
-  auth.setAccessSecret(config["access_secret"].as<std::string>());
-
-  twitter::client client(auth);
+  mastodonpp::Instance instance{
+    config["mastodon_instance"].as<std::string>(),
+    config["mastodon_token"].as<std::string>()};
+  mastodonpp::Connection connection{instance};
 
   // Parse forms file
   std::map<std::string, std::vector<std::string>> groups;
@@ -516,6 +514,7 @@ int main(int argc, char** argv)
   }
 
   std::string colorsfile(config["colors"].as<std::string>());
+  std::string tempfile(config["tempfile"].as<std::string>());
 
   verbly::data database {config["verbly_datafile"].as<std::string>()};
 
@@ -775,36 +774,50 @@ int main(int argc, char** argv)
     }
 
     textimage.annotate(towrite, Magick::CenterGravity);
-    textimage.opacity(((double)MaxRGB) * 0.8);
+    textimage.opacity(((double)MaxRGB) * 0.2);
     image.composite(textimage, 0, 0, Magick::OverCompositeOp);
 
     image.magick("jpg");
+    image.write(tempfile);
 
-    Magick::Blob outputimg;
-    image.write(&outputimg);
+    std::cout << "Generated image!" << std::endl << "Posting..." << std::endl;
 
-    std::cout << "Generated image!" << std::endl << "Tweeting..." << std::endl;
+    std::string tweetText = action;
+    tweetText.resize(140);
 
-    std::string tweetText;
-    size_t tweetLim = 140 - client.getConfiguration().getCharactersReservedPerMedia() - client.getUser().getScreenName().length() - 6;
-    if (action.length() > tweetLim)
+    auto answer{connection.post(mastodonpp::API::v1::media,
+      {{"file", std::string("@file:") + tempfile}, {"description", tweetText}})};
+    if (!answer)
     {
-      tweetText = "\"" + action.substr(0, tweetLim - 1) + "…\" --@" + client.getUser().getScreenName();
+      if (answer.curl_error_code == 0)
+      {
+        std::cout << "HTTP status: " << answer.http_status << std::endl;
+      }
+      else
+      {
+        std::cout << "libcurl error " << std::to_string(answer.curl_error_code)
+             << ": " << answer.error_message << std::endl;
+      }
     } else {
-      tweetText = "\"" + action + "\" --@" + client.getUser().getScreenName();
+      nlohmann::json response_json = nlohmann::json::parse(answer.body);
+      answer = connection.post(mastodonpp::API::v1::statuses,
+        {{"status", tweetText}, {"media_ids",
+          std::vector<std::string_view>{response_json["id"].get<std::string>()}}});
+
+      if (!answer)
+      {
+        if (answer.curl_error_code == 0)
+        {
+          std::cout << "HTTP status: " << answer.http_status << std::endl;
+        }
+        else
+        {
+          std::cout << "libcurl error " << std::to_string(answer.curl_error_code)
+               << ": " << answer.error_message << std::endl;
+        }
+      }
     }
 
-    try
-    {
-      long media_id = client.uploadMedia("image/jpeg", (const char*) outputimg.data(), outputimg.length());
-      client.updateStatus(tweetText, {media_id});
-
-      std::cout << "Done!" << std::endl << "Waiting..." << std::endl << std::endl;
-    } catch (const twitter::twitter_error& e)
-    {
-      std::cout << "Twitter error: " << e.what() << std::endl;
-    }
-
-    std::this_thread::sleep_for(std::chrono::hours(1));
+    std::this_thread::sleep_for(std::chrono::hours(12));
   }
 }
